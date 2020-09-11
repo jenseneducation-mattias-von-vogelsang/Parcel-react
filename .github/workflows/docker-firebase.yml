@@ -31,16 +31,48 @@ jobs:
         run: echo "::set-env name=IMAGE_TAGS::${IMAGE_TAGS},latest"
 
 
-        # måste göra en checkout för att kolna repo för att komma åt filen docker. Docker ger i sin tur angivna instruktioner.
+        # måste göra en checkout för att klona repo för att komma åt filen docker. Docker ger i sin tur angivna instruktioner.
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Build & Publish Docker image
         uses: whoan/docker-build-with-cache-action@v5
         with:
-          # username och password ska i vanliga fall vara dolt för att motverka säkerhetsbrister.
+          #secrets är en encrypted variabel sparad i github. Konfigurerad med docker inlog/pw
           username: "${{ secrets.DOCKER_HUB_USERNAME }}"
-          #secret är ett kommande. Hämtar från github settings secrets.
           password: "${{ secrets.DOCKER_HUB_PASSWORD }}"
           image_name: "${{ secrets.DOCKER_HUB_USERNAME }}/parcel-react"
           image_tag: "${{ env.IMAGE_TAGS }}"
+
+      - name: Build
+          runs-on: ubuntu-latest
+              steps:
+                - name: Checkout Repo
+                  uses: actions/checkout@master
+                - name: Install Dependencies
+                  run: npm ci
+                - name: Build
+                  run: npm run build
+                - name: Archive Production Artifact
+                  uses: actions/upload-artifact@master
+                  with:
+                    name: dist
+                    path: dist
+            deploy:
+              name: Deploy
+              needs: build
+              runs-on: ubuntu-latest
+              steps:
+                - name: Checkout Repo
+                  uses: actions/checkout@master
+                - name: Download Artifact
+                  uses: actions/download-artifact@master
+                  with:
+                    name: dist
+                    path: dist
+                - name: Deploy to Firebase
+                  uses: w9jds/firebase-action@master
+                  with:
+                    args: deploy --only hosting
+                  env:
+                    FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
