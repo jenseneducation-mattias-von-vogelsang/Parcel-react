@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
+    "firebase-tools": "^8.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
