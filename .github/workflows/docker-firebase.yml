@@ -44,20 +44,19 @@ jobs:
           image_name: "${{ secrets.DOCKER_HUB_USERNAME }}/parcel-react"
           image_tag: "${{ env.IMAGE_TAGS }}"
 
-      - name: Build for Firebase
-                - name: Checkout Repo
-                  uses: actions/checkout@master
-                - name: Install Dependencies
-                  run: npm ci
-                - name: Build
-                  run: npm run build
-                - name: Archive Production Artifact
-                  uses: actions/upload-artifact@master
-                  with:
-                    name: dist
-                    path: dist
-            deploy:
-              name: Deploy
+      - name: Checkout Repo for Firebase
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+          with:
+            name: dist
+            path: dist
+      deploy:
+      name: Deploy
               needs: build
               runs-on: ubuntu-latest
               steps:
