@@ -5,9 +5,9 @@ name: Test & Build Docker Container
 
 on:
   push:
-    - [ master ]
+    - master
   pull_request:
-    - [ master ]
+    - master
 
 jobs:
   build:
