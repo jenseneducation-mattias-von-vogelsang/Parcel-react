@@ -42,5 +42,5 @@ jobs:
           username: "${{ secrets.DOCKER_HUB_USERNAME }}"
           #secret är ett kommande. Hämtar från github settings secrets.
           password: "${{ secrets.DOCKER_HUB_PASSWORD }}"
-          image_name: mattiaslvv/parcel-react
+          image_name: "${{ secrets.DOCKER_HUB_USERNAME }}/parcel-react"
           image_tag: "${{ env.IMAGE_TAGS }}"
