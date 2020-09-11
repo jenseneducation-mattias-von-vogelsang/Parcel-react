@@ -44,8 +44,7 @@ jobs:
           image_name: "${{ secrets.DOCKER_HUB_USERNAME }}/parcel-react"
           image_tag: "${{ env.IMAGE_TAGS }}"
 
-      - name: Build
-          runs-on: ubuntu-latest
+      - name: Build for Firebase
               steps:
                 - name: Checkout Repo
                   uses: actions/checkout@master
