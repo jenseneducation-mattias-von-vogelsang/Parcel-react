@@ -1,10 +1,10 @@
-import React from "react";
-import RickRolled from "../RickRolled/RickRolled";
+import React from 'react';
+import RickRolled from '../RickRolled/RickRolled';
 
 // Import jest
 // npm i and import "testing library", you know the: <コ:彡
 
-test("Always positive test to check testing environment.", async () => {
+test('Always positive test to check testing environment.', async () => {
   expect(true).toBe(true);
 });
 
