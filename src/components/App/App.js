@@ -1,6 +1,7 @@
 import React from 'react';
-import RickRolled from '../RickRolled/RickRolled.js';
-import ArturTest from '../ArturTest/ArturTest.js';
+// You dont need to specify the filetyp with name.js
+import RickRolled from '../RickRolled/RickRolled';
+import ArturTest from '../ArturTest/ArturTest';
 
 import './App.css';
 
