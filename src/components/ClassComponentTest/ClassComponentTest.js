@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ArturTest extends React.Component {
+export default class ClassComponentTest extends React.Component {
   render() {
     /* Used external variable value and passed it into React.Fragment
 		instead of wrapping it with a div.
