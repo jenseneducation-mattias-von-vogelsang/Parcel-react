@@ -1,6 +1,3 @@
-import React from 'react';
-import RickRolled from '../RickRolled/RickRolled';
-
 // Import jest
 // npm i and import "testing library", you know the: <コ:彡
 

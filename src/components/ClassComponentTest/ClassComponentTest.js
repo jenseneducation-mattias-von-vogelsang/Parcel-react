@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ArturTest extends React.Component {
+export default class ClassComponentTest extends React.Component {
   render() {
     /* Used external variable value and passed it into React.Fragment
 		instead of wrapping it with a div.
@@ -9,7 +9,7 @@ export default class ArturTest extends React.Component {
     const reactFragmentTest = 'Testing with React.Fragment';
     return (
       <React.Fragment>
-        <h1>{reactFragmentTest}</h1>;<h1>{this.props.greeting}</h1>
+        <h1>{reactFragmentTest}</h1>;<h1>{this.props.Greeting}</h1>
       </React.Fragment>
     );
   }
