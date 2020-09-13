@@ -9,7 +9,7 @@ export default class ArturTest extends React.Component {
     const reactFragmentTest = 'Testing with React.Fragment';
     return (
       <React.Fragment>
-        <h1>{reactFragmentTest}</h1>;<h1>{this.props.greeting}</h1>
+        <h1>{reactFragmentTest}</h1>;<h1>{this.props.Greeting}</h1>
       </React.Fragment>
     );
   }

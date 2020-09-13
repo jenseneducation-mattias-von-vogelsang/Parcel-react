@@ -10,7 +10,7 @@ export default class App extends React.Component {
     return (
       <div className='component-app'>
         <RickRolled />
-        <ArturTest greeting={greeting} />
+        <ArturTest Greeting={greeting} />
       </div>
     );
   }
