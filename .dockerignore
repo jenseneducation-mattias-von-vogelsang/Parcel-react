@@ -1,3 +1,11 @@
 # Exclude files in docker build:
 node_modules
 npm-debug.log
+**/node_modules
+**/dist
+npm-debug.log
+.editorconfig
+.git
+*.md
+*.yml
+app.json
